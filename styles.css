@@ -1,0 +1,946 @@
+/* --- Smooth Scroll & Scrollbar Reset --- */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Custom Scrollbar (Optional but looks premium) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-primary);
+  border-radius: 10px;
+}
+
+
+
+
+
+:root {
+    /* Dark Theme - Luxury Gold & Silver */
+    --bg-dark: #0a0a0a;
+    --text-silver: #e0e0e0;
+    --gold-primary: #D4AF37;
+    --gold-shine: #f9e29d;
+    --nav-glass: rgba(10, 10, 10, 0.8);
+}
+
+.light-theme {
+    /* Light Theme - Clean Professional */
+    --bg-dark: #ffffff;
+    --text-silver: #2d3436;
+    --gold-primary: #b8860b;
+    --gold-shine: #8b4513;
+    --nav-glass: rgba(255, 255, 255, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-silver);
+    height: 200vh; /* Scroll check karne ke liye */
+    transition: 0.5s ease;
+}
+
+/* Sticky Luxury Navbar */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    background: var(--nav-glass);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    transition: all 0.4s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text-silver);
+    text-transform: uppercase;
+}
+
+.gold-text {
+    color: var(--gold-primary);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li { margin-left: 35px; }
+
+/* Modern Hover Effect (Underline) */
+.nav-item {
+    text-decoration: none;
+    color: var(--text-silver);
+    font-weight: 500;
+    font-size: 15px;
+    position: relative;
+    padding: 5px 0;
+    transition: 0.3s;
+}
+
+.nav-item:hover {
+    color: var(--gold-primary);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--gold-primary), var(--gold-shine));
+    box-shadow: 0 0 5px var(--gold-primary);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.theme-toggle {
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--gold-primary);
+    margin-left: 40px;
+}
+
+/* Hamburger Styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.line {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background-color: var(--gold-primary);
+    margin: 6px auto;
+    transition: 0.4s;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .hamburger { display: block; }
+    
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 70%;
+        background: var(--bg-dark);
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active { right: 0; }
+    .nav-links li { margin: 25px 0; }
+    
+    .hamburger.active .line:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .line:nth-child(2) { opacity: 0; }
+    .hamburger.active .line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+/* particles css....................................................................................................*/
+/* --- Global Background Particles Styling --- */
+
+/* 1. Particles Container ko Fixed aur Peeche set karo */
+#tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ye sabse peeche rahega */
+    background-color: #050505; /* Base dark background */
+}
+
+/* 2. Sabhi sections ka background transparent karo taaki particles dikhein */
+body, section {
+    background: transparent !important;
+}
+
+/* 3. Luxury Look ke liye radial gradient overlay (Optional par recommended) */
+body::before {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    background: radial-gradient(circle at center, rgba(10,10,10,0) 0%, rgba(5,5,5,0.8) 100%);
+    pointer-events: none;
+    z-index: 0; /* Particles ke upar, content ke niche */
+}
+
+/* Tumhare baki sections (Hero, Tech Stack) ka styling transparent background ke saath chalega */
+
+
+/*second section css....................................................................................................*/
+
+/* Hero Section Base */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+/* Logo Placeholder Styling */
+.logo-placeholder img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px var(--gold-primary));
+}
+
+.hero-content h3 {
+    color: var(--gold-primary);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.hero-content h1 {
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 900;
+    color: var(--text-silver);
+    text-shadow: 2px 2px 20px rgba(255, 255, 255, 0.1);
+}
+
+.dynamic-roles {
+    font-size: 24px;
+    margin: 15px 0;
+    font-weight: 300;
+}
+
+#typing {
+    color: var(--gold-primary);
+    font-weight: 600;
+    border-right: 2px solid var(--gold-primary);
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.hero-description {
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #b0b0b0;
+}
+
+/* Specific Highlights */
+.highlight {
+    color: var(--gold-shine);
+    font-weight: 700;
+    text-decoration: underline dotted var(--gold-primary);
+}
+
+/* Buttons */
+.hero-btns {
+    margin-top: 35px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-primary {
+    padding: 12px 35px;
+    background: linear-gradient(45deg, var(--gold-primary), var(--gold-shine));
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.btn-secondary {
+    padding: 12px 35px;
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-primary);
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4); }
+
+/* Cursor Light Effect */
+.cursor-glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    transition: 0.1s ease-out;
+}
+
+/* section 2nd css .............................................*/
+/* Tech Section Styling */
+.tech-section {
+    position: relative;
+    padding: 100px 0;
+    background: #050505;
+    overflow: hidden;
+}
+
+/* Animated Grid Background */
+.grid-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 200%; height: 200%;
+    background-image: 
+        linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(500px) rotateX(60deg);
+    animation: gridMove 20s linear infinite;
+    z-index: 1;
+}
+
+@keyframes gridMove {
+    from { transform: perspective(500px) rotateX(60deg) translateY(0); }
+    to { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+}
+
+.tech-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 40px;
+    margin-bottom: 50px;
+    color: var(--text-silver);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Tech Grid & Cards */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.tech-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    padding: 40px 20px;
+    border-radius: 20px;
+    position: relative;
+    transition: 0.5s ease;
+    backdrop-filter: blur(10px);
+    animation: floating 4s ease-in-out infinite;
+}
+
+/* Har card thoda alag time par float karega */
+.tech-card:nth-child(even) { animation-delay: 1s; }
+.tech-card:nth-child(3) { animation-delay: 2s; }
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.tech-card:hover {
+    border-color: var(--gold-primary);
+    transform: translateY(-20px) scale(1.05);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.icon-box {
+    font-size: 45px;
+    color: var(--gold-primary);
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+}
+
+.tech-card h3 {
+    color: var(--text-silver);
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.tech-card p {
+    color: #888;
+    font-size: 14px;
+}
+
+/* Card Glow Effect on Hover */
+.card-glow {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 20px;
+    pointer-events: none;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.2), transparent 70%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.tech-card:hover .card-glow {
+    opacity: 1;
+}
+
+/* section third//////////////////////////////// */
+
+
+/* =============================================
+   ABOUT SECTION: SINGLE FOCUS STYLING
+   ============================================= */
+.about-section {
+    background: #000;
+    min-height: 100vh;
+    padding: 100px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.about-container { width: 100%; max-width: 1200px; }
+
+.about-header { text-align: center; margin-bottom: 50px; }
+.breadcrumb { color: #666; letter-spacing: 2px; text-transform: uppercase; font-size: 13px; }
+.main-title { font-size: 50px; font-weight: 800; color: #fff; margin-top: 10px; }
+.gold-text { color: var(--gold-primary); }
+
+/* Slider Viewport */
+.cards-viewport {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.cards-stage {
+    display: flex;
+    transition: transform 0.7s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.focus-item {
+    min-width: 100%; /* Ek screen pe ek card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    opacity: 0.3;
+    transform: scale(0.8);
+    transition: 0.5s;
+}
+
+.focus-item.active { opacity: 1; transform: scale(1); }
+
+/* 3D Card Styling */
+.skill-card-3d {
+    width: 320px;
+    height: 420px;
+    perspective: 1500px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%; height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card-inner.is-flipped { transform: rotateY(180deg); }
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    border-radius: 30px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: linear-gradient(145deg, #111, #000);
+}
+
+.card-back { transform: rotateY(180deg); background: var(--gold-primary); color: #000; }
+
+.svg-icon { font-size: 60px; color: var(--gold-primary); margin-bottom: 20px; }
+
+/* Details Styling */
+.skill-details { text-align: center; max-width: 600px; }
+.skill-details h2 { font-size: 35px; margin-bottom: 15px; color: #fff; }
+.skill-details p { color: #aaa; font-size: 18px; line-height: 1.6; }
+
+/* Navigation */
+.focus-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.nav-circle {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: transparent; border: 1px solid var(--gold-primary);
+    color: var(--gold-primary); cursor: pointer; transition: 0.3s;
+}
+
+.nav-circle:hover { background: var(--gold-primary); color: #000; }
+
+@media (max-width: 768px) {
+    .main-title { font-size: 35px; }
+    .skill-card-3d { width: 280px; height: 380px; }
+}
+.info-btn{
+        color: #b8860b;
+    padding: 10px;
+    background: none;
+    border: 3px solid #b8860b;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.back-btn{
+        padding: 5px;
+    background: none;
+    border: 3px solid black;
+    border-radius: 20px;
+    margin-top: 20px;
+    color: black;
+}
+
+
+/* section 4th css............................................................. */
+
+
+/* =============================================
+   PROJECTS SECTION: REACT-LEVEL DESIGN
+   ============================================= */
+.pro-projects {
+    padding: 100px 5%;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.section-title { text-align: center; margin-bottom: 60px; }
+.tagline { color: var(--gold-primary); letter-spacing: 3px; font-size: 12px; }
+.title { font-size: 45px; font-weight: 800; margin-top: 10px; }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Floating Effect (Anti-Gravity) */
+.project-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: var(--gold-primary);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+}
+
+.project-img {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.project-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: 0.6s;
+}
+
+.project-card:hover .project-img img { transform: scale(1.1); }
+
+/* Tech Stack Chips */
+.tech-stack {
+    position: absolute;
+    top: 15px; left: 15px;
+    display: flex; gap: 8px;
+}
+
+.tech-stack span {
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--gold-primary);
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 10px;
+    font-weight: bold;
+    border: 1px solid var(--gold-primary);
+}
+
+.project-info { padding: 30px; }
+.project-info h3 { font-size: 24px; margin-bottom: 12px; color: #fff; }
+.project-info p { color: #888; font-size: 14px; line-height: 1.6; margin-bottom: 25px; }
+
+/* --- Button Group & Magnetic Styling --- */
+.btn-group { display: flex; gap: 15px; }
+
+.mag-btn-wrap {
+    display: flex; align-items: center; justify-content: center;
+}
+
+.magnetic-btn {
+    padding: 10px 24px;
+    border-radius: 50px;
+    border: none;
+    background: #fff;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.magnetic-btn.outline {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.magnetic-btn:hover {
+    background: var(--gold-primary);
+    color: #000;
+    box-shadow: 0 0 20px var(--gold-primary);
+}
+
+@media (max-width: 768px) {
+    .title { font-size: 32px; }
+}
+
+
+
+
+/* section 5th css............................................................. */
+/* =============================================
+   CONTACT SECTION STYLING (MOBILE RESPONSIVE)
+   ============================================= */
+.contact-section {
+    padding: 100px 5%;
+    background: #000;
+    color: #fff;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 20px;
+    border-left: 4px solid var(--gold-primary);
+    transition: 0.3s;
+}
+
+.info-box:hover { transform: translateX(10px); background: rgba(255, 255, 255, 0.08); }
+.info-box i { color: var(--gold-primary); font-size: 24px; margin-bottom: 15px; }
+
+/* Form Styling */
+.contact-form-container {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 50px;
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#luxuryContactForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.full-width { grid-column: span 2; }
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 15px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group textarea { height: 100px; resize: none; }
+
+.input-group label {
+    position: absolute;
+    top: 15px; left: 0;
+    color: #888;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* Floating Label Logic */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    font-size: 12px;
+    color: var(--gold-primary);
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-bottom-color: var(--gold-primary);
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 18px 40px;
+    border-radius: 50px;
+    background: #fff;
+    color: #000;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.submit-btn:hover {
+    background: var(--gold-primary);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+}
+
+.response-msg { margin-top: 20px; font-size: 14px; text-align: center; }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .contact-wrapper { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    #luxuryContactForm { grid-template-columns: 1fr; }
+    .full-width { grid-column: span 1; }
+    .contact-form-container { padding: 30px 20px; }
+}
+
+
+/* =============================================
+   FOOTER STYLING (ADVANCE FLOATING DESIGN)
+   ============================================= */
+.main-footer {
+    position: relative;
+    background: #000;
+    padding: 80px 5% 40px;
+    color: #fff;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Background Glowing Effect */
+.footer-bg-blur {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-brand .logo-text {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.footer-brand p {
+    color: #888;
+    max-width: 350px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Floating Socials Logic */
+.social-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.social-link {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 22px;
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: floatIcon 3s ease-in-out infinite alternate;
+}
+
+/* Animation to give floating effect */
+@keyframes floatIcon {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+/* Offset animation for each icon so they don't move together */
+.social-link:nth-child(2) { animation-delay: 0.5s; }
+.social-link:nth-child(3) { animation-delay: 1s; }
+.social-link:nth-child(4) { animation-delay: 1.5s; }
+.social-link:nth-child(5) { animation-delay: 2s; }
+
+.social-link:hover {
+    background: var(--gold-primary);
+    color: #000;
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 20px var(--gold-primary);
+    transform: translateY(-15px) scale(1.1);
+}
+
+.footer-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    margin: 60px 0 30px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover { color: var(--gold-primary); }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .footer-top { flex-direction: column; text-align: center; }
+    .social-wrapper { justify-content: center; }
+    .footer-bottom { flex-direction: column-reverse; }
+}

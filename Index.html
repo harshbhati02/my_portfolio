@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Vardhan Bhati | Luxury Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="dark-theme">
+    <div id="tsparticles"></div>
+    <header id="navbar" class="sticky-nav">
+        <nav class="nav-container">
+            <div class="logo">
+                HARSH<span class="gold-text">BHATI</span>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#home" class="nav-item">Home</a></li>
+                <li><a href="#about-me" class="nav-item">About Me</a></li>
+                <li><a href="#projects" class="nav-item">Projects</a></li>
+                <li><a href="#contact" class="nav-item">Contact</a></li>
+                <li class="theme-toggle">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span class="line gold-bg"></span>
+                <span class="line gold-bg"></span>
+                <span class="line gold-bg"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!--section first...............................................................................................................-->
+    <section id="home" class="hero-section">
+        <div id="particles-js"></div>
+
+        <div class="cursor-glow"></div>
+
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="logo-placeholder">
+                    <img src="img/developer png.png" alt="HB Logo" id="main-logo">
+                </div>
+                <h3>Welcome to my Universe</h3>
+                <h1>Harsh Vardhan Bhati</h1>
+                <h2 class="dynamic-roles">I am a <span id="typing"></span></h2>
+
+                <p class="hero-description">
+                    Crafting digital experiences where <span class="highlight">Artificial Intelligence</span> meets
+                    creative
+                    <span class="highlight">Graphics Design</span>. I turn complex ideas into elegant,
+                    high-performance web solutions with a touch of luxury.
+                </p>
+
+                <div class="hero-btns">
+                    <a href="#projects" class="btn-primary">View My Work</a>
+                    <a href="#contact" class="btn-secondary">Let's Connect</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--section first...............................................................................................................ENDdddddd-->
+
+
+    <section id="tech-stack" class="tech-section">
+        <div class="grid-bg"></div>
+
+        <div class="container">
+            <h2 class="section-title">My <span class="gold-text">Tech Universe</span></h2>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="icon-box">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Expert</h3>
+                    <p>Machine Learning & Neural Networks</p>
+                    <div class="card-glow"></div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="icon-box">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Graphics Design</h3>
+                    <p>Luxury UI/UX & Brand Identity</p>
+                    <div class="card-glow"></div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="icon-box">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Modern Frameworks & Interactive Apps</p>
+                    <div class="card-glow"></div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="icon-box">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3>Content Creation</h3>
+                    <p>Digital Strategy & Storytelling</p>
+                    <div class="card-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--section second end...............................................................................................................-->
+
+    <section id="about-me" class="about-section">
+        <div class="about-container">
+
+            <div class="about-header" data-aos="fade-up">
+                <h4 class="breadcrumb">About Me</h4>
+                <h2 class="main-title">Expertise & <span class="gold-text">Skills</span></h2>
+            </div>
+
+            <div class="focus-slider">
+                <div class="cards-viewport">
+                    <div class="cards-stage" id="cardsStage">
+
+                        <div class="focus-item active">
+                            <div class="skill-card-3d" id="card1">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <div class="svg-icon"><i class="fas fa-brain"></i></div>
+                                        <h3>AI EXPERT</h3>
+                                        <button class="info-btn" onclick="flipFocusCard('card1')">VIEW DETAILS</button>
+                                    </div>
+                                    <div class="card-back">
+                                        <h3>AI CAPABILITIES</h3>
+                                        <p>Deep Learning, Neural Networks, and Custom GPT integrations. Making machines
+                                            think like humans.</p>
+                                        <button class="back-btn" onclick="flipFocusCard('card1')">GO BACK</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <h2>AI Expertise</h2>
+                                <p>I have built 2+ unique AI applications and specialize in automating complex workflows
+                                    using Python and OpenAI.</p>
+                            </div>
+                        </div>
+
+                        <div class="focus-item">
+                            <div class="skill-card-3d" id="card2">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <div class="svg-icon"><i class="fas fa-pen-nib"></i></div>
+                                        <h3>GRAPHICS DESIGNER</h3>
+                                        <button class="info-btn" onclick="flipFocusCard('card2')">VIEW DETAILS</button>
+                                    </div>
+                                    <div class="card-back">
+                                        <h3>DESIGN VISION</h3>
+                                        <p>High CTR Thumbnails, Premium UI/UX, and Branding that speaks for itself.</p>
+                                        <button class="back-btn" onclick="flipFocusCard('card2')">GO BACK</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <h2>Visual Storytelling</h2>
+                                <p>Creating luxury branding and viral visual content for top-tier creators and digital
+                                    brands.</p>
+                            </div>
+                        </div>
+
+                        <div class="focus-item">
+                            <div class="skill-card-3d" id="card3">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <div class="svg-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                                        <h3>TEACHING</h3>
+                                        <button class="info-btn" onclick="flipFocusCard('card3')">VIEW DETAILS</button>
+                                    </div>
+                                    <div class="card-back">
+                                        <h3>MENTORSHIP</h3>
+                                        <p>Empowering the next generation of tech enthusiasts through simplified
+                                            learning.</p>
+                                        <button class="back-btn" onclick="flipFocusCard('card3')">GO BACK</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <h2>500+ Students Taught</h2>
+                                <p>Global reach with expert mentorship in AI, Design, and Web Development through
+                                    interactive sessions.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="focus-nav">
+                    <button id="prevBtn" class="nav-circle"><i class="fas fa-arrow-left"></i></button>
+                    <div class="nav-dots" id="navDots"></div>
+                    <button id="nextBtn" class="nav-circle"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--section third end...............................................................................................................-->
+
+    <!--section fourth starts...............................................................................................................-->
+
+   <section id="projects" class="pro-projects">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h4 class="tagline">MY WORK</h4>
+            <h2 class="title">Featured <span class="gold-text">Projects</span></h2>
+        </div>
+
+        <div class="projects-grid">
+            
+            <div class="project-card" data-aos="zoom-in-up">
+                <div class="card-inner">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=600&fit=crop" alt="Loan Manager Pro">
+                        <div class="tech-stack">
+                            <span>FIREBASE</span>
+                            <span>CLAUDE AI</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Loan Manager Pro</h3>
+                        <p>An Android app which is made with using AI and AI coders so that it can provide automated loan management solutions as must calculate all type of daily transactions what ever is being done by the user.</p>
+                        <div class="btn-group">
+                            <div class="mag-btn-wrap">
+                                <button class="magnetic-btn">View Live</button>
+                            </div>
+                            <div class="mag-btn-wrap">
+                                <button class="magnetic-btn outline">GitHub</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in-up" data-aos-delay="200">
+                <div class="card-inner">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&fit=crop" alt="Portfolio">
+                        <div class="tech-stack">
+                            <span>ANTIGRAVITY</span>
+                            <span>CSS3</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Portfolio Ecosystem</h3>
+                        <p>A high-performance cinematic portfolio with extreme 3D transitions and smooth scrolling. And it is the website that showcases my work and skills.</p>
+                        <div class="btn-group">
+                            <div class="mag-btn-wrap">
+                                <button class="magnetic-btn">Live Demo</button>
+                            </div>
+                            <div class="mag-btn-wrap">
+                                <button class="magnetic-btn outline">GitHub</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card major-project" data-aos="zoom-in-up" data-aos-delay="400">
+                <div class="card-inner">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=600&fit=crop" alt="Major Project">
+                        <div class="tech-stack">
+                            <span>FULL STACK</span>
+                            <span>AI GEN</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 id="major-name">HarMay-EduTech</h3>
+                        <p>It is an upcomming plan form Me and My Partner "Mayank Rana". It is a Learning and Earning Eco System for Students and Professionals. It is a Full Stack Project with AI Gen Integration for Personalized Learning Paths. It will revolutionize online education with interactive content and real-time feedback.
+                        </p>
+                        <div class="btn-group">
+                            <div class="mag-btn-wrap">
+                                <button class="magnetic-btn"> <a href="www.google.com">Explore</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- section 5th-->
+
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="contact-header" data-aos="fade-up">
+            <h4 class="tagline">GET IN TOUCH</h4>
+            <h2 class="title">Let's Craft Something <span class="gold-text">Great</span></h2>
+        </div>
+
+        <div class="contact-wrapper">
+            <div class="contact-info" data-aos="fade-right">
+                <div class="info-box">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Me</h3>
+                    <p>Fill Up the Contact form to connect with me thank you!</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>India</p>
+                </div>
+            </div>
+
+            <div class="contact-form-container" data-aos="fade-left">
+                <form id="luxuryContactForm">
+                    <div class="input-group">
+                        <input type="text" name="name" id="name" required placeholder=" ">
+                        <label for="name">Full Name *</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" name="email" id="email" required placeholder=" ">
+                        <label for="email">Email Address *</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" name="subject" id="subject" required placeholder=" ">
+                        <label for="subject">Subject *</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="tel" name="phone" id="phone" placeholder=" ">
+                        <label for="phone">Phone Number (Optional)</label>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <textarea name="message" id="message" required placeholder=" "></textarea>
+                        <label for="message">Your Message *</label>
+                    </div>
+
+                    <div class="form-footer">
+                        <div class="mag-btn-wrap">
+                            <button type="submit" class="magnetic-btn submit-btn" id="submitBtn">
+                                <span>SEND MESSAGE</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="formResponse" class="response-msg"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- section  footer-->
+
+<footer class="main-footer">
+    <div class="footer-bg-blur"></div>
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-brand" data-aos="fade-right">
+                <h2 class="logo-text">HARSH <span class="gold-text">BHATI</span></h2>
+                <p>Creating digital experiences that push the boundaries of AI & Design.</p>
+            </div>
+
+            <div class="footer-socials" data-aos="fade-left">
+                <div class="social-wrapper">
+                    <a href="#" class="social-link magnetic-btn" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link magnetic-btn" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link magnetic-btn" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-link magnetic-btn" title="Threads">
+                        <i class="fa-solid fa-at"></i>
+                    </a>
+                    <a href="#" class="social-link magnetic-btn" title="Snapchat">
+                        <i class="fab fa-snapchat-ghost"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Harsh Bhati. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about-me">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
