@@ -77,6 +77,8 @@ header {
     transition: all 0.4s ease;
 }
 
+
+
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -943,4 +945,113 @@ body::before {
     .footer-top { flex-direction: column; text-align: center; }
     .social-wrapper { justify-content: center; }
     .footer-bottom { flex-direction: column-reverse; }
+}
+
+
+
+/*---- harsh bhati card related deatils about css as who harsh bhati is and all details about him in a card formate css----*/
+
+/* Floating Button */
+.who-am-i-btn {
+    background: transparent; border: 2px solid var(--gold-primary);
+    color: var(--gold-primary); padding: 12px 25px; border-radius: 50px;
+    font-weight: 600; cursor: pointer; transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); margin-top: 0;
+}
+.who-am-i-btn:hover {
+    background: var(--gold-primary); color: #000;
+    box-shadow: 0 8px 25px var(--gold-primary); transform: translateY(-3px);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 100000;
+    justify-content: center; align-items: center;
+}
+
+/* Modal Card */
+.modal-card {
+    background: #111; border: 1px solid rgba(255,255,255,0.1); width: 90%;
+    max-width: 850px; border-radius: 25px; padding: 40px; position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    max-height: 90vh; /* Screen ki 90% height se bada nahi hoga */
+    overflow-y: auto; /* Agar content zyada hai toh scroll bar aa jayega */
+    display: flex;
+    flex-direction: column;
+}
+.modal-card::-webkit-scrollbar {
+    width: 5px;
+}
+.modal-card::-webkit-scrollbar-thumb {
+    background: var(--gold-primary);
+    border-radius: 10px;
+}
+
+.modal-body { display: flex; gap: 40px; align-items: center; margin-bottom: 30px; }
+
+.modal-left { flex: 1; text-align: center; }
+.profile-frame {
+    width: 220px; height: 220px; border-radius: 30px; overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 3px solid var(--gold-primary);
+}
+.profile-img { width: 100%; height: 100%; object-fit: cover; }
+
+.modal-right { flex: 1.5; }
+.modal-title { font-size: 2.5rem; margin-bottom: 15px; }
+.modal-title span { color: var(--gold-primary); }
+.modal-text { text-align: justify; line-height: 1.7; color: #ccc; }
+
+/* Father Card Section */
+.father-card {
+    display: flex; align-items: center; gap: 20px; background: rgba(255,255,255,0.03);
+    padding: 20px; border-radius: 20px; border-left: 4px solid var(--gold-primary);
+    transition: 0.3s;
+    margin-bottom: 20px; /* Taki scroll ke end mein gap rahe */
+}
+.father-card:hover { background: rgba(255,255,255,0.07); transform: scale(1.02); }
+.father-img-box {
+    width: 100px; /* Size thoda bada kiya hai visibility ke liye */
+    height: 100px;
+    border-radius: 50%; /* Isse perfect circle banega */
+    overflow: hidden; /* Jo hissa circle ke bahar jayega wo kat jayega */
+    border: 2px solid var(--gold-primary); /* Ek patli gold outline premium lagegi */
+    flex-shrink: 0; /* Mobile par image choti na ho jaye isliye */
+}
+
+.father-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* YAHI MAIN HAI: Isse photo stretch nahi hogi */
+    object-position: center; /* Photo ka beech ka hissa dikhega */
+    display: block;
+}
+.father-info h4 { color: var(--gold-primary); margin-bottom: 5px; }
+.father-info p { font-size: 0.85rem; color: #aaa; }
+
+.modal-close {
+    position: absolute; top: 20px; right: 20px; background: none; border: none;
+    color: #fff; font-size: 30px; cursor: pointer;
+}
+
+/* Responsive Stack */
+@media (max-width: 768px) {
+    .modal-body { flex-direction: column; gap: 20px; text-align: center; }
+    .modal-card { padding: 30px 20px; margin-top: 100px; height: 80vh; overflow-y: auto; }
+    .modal-text { text-align: center; }
+    .father-card { flex-direction: column; text-align: center; }
+    .modal-overlay {
+        padding: 20px; /* Taki modal screen se chipka na rahe */
+        align-items: flex-start; /* Scroll ke liye top se start karna sahi rehta hai */
+    }
+    .modal-card {
+        width: 100%;
+        margin-top: 50px; /* Top se thodi jagah */
+        padding: 20px;
+        max-height: 85vh; /* Mobile screen ke hisab se height */
+    }
+    .modal-body {
+        flex-direction: column; /* Photo upar, text niche */
+        gap: 20px;
+    }
 }

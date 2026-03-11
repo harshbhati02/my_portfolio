@@ -397,3 +397,34 @@ document.querySelectorAll('.footer-links a').forEach(link => {
         }
     });
 });
+ // card who harsh bhati logic
+
+
+ function toggleAboutModal() {
+    const modal = document.getElementById('aboutModal');
+    if (modal.style.display === "flex") {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    } else {
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+}
+
+// Click outside to close
+function closeModalOutside(event) {
+    const modal = document.getElementById('aboutModal');
+    if (event.target === modal) {
+        toggleAboutModal();
+    }
+}
+function toggleAboutModal() {
+    const modal = document.getElementById('aboutModal');
+    if (modal.style.display === "flex") {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Main page scroll on
+    } else {
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden"; // Main page scroll off
+    }
+}
