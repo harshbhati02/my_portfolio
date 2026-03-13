@@ -348,13 +348,13 @@ contactForm.addEventListener('submit', function(e) {
 
     // NOTE: Replace 'YOUR_GOOGLE_SCRIPT_URL' with your deployed Apps Script URL
     // This will send data to Google Sheets which acts as your Excel sheet.
-    fetch('https://script.google.com/macros/s/AKfycbxVT06KhY6mputhRjArFh6ECFBXox6NzxNJkGUDTlMPhjPNQltaFfVkwFodHsxUS9-rLA/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxWZxQA6aKooZ3vMaCFYWorpn-iceV0OOpu4bQ9HPsEsXkKlNER_SmfCu_teu0aNUr9eg/exec', {
         method: 'POST',
         body: JSON.stringify(data)
     })
     .then(res => {
         responseMsg.style.color = "var(--gold-primary)";
-        responseMsg.innerHTML = "Success! Data saved to Excel & Notification Sent.";
+        responseMsg.innerHTML = "Message sent successfully! I'll get back to you soon.";
         contactForm.reset();
         submitBtn.innerHTML = "<span>SEND MESSAGE</span> <i class='fas fa-paper-plane'></i>";
         submitBtn.style.opacity = "1";
